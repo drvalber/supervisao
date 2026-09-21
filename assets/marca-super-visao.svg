@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Ícone compacto Super+Visão para fundo escuro</title>
+  <desc id="descricao">Versão compacta do símbolo Super+Visão para áreas pequenas sobre fundo escuro, com órbitas espessas e sinal de mais central. Arquivo com fundo transparente.</desc>
+  <path d="M22 95.5C32.5 120.5 58.6 133.4 84.9 127.5C113.8 121 132.3 94.9 126.1 68.6C121.9 50.5 108.5 35.6 91.2 29.1" fill="none" stroke="#77E0E5" stroke-width="12.5" stroke-linecap="round"/>
+  <path d="M31.9 47.5C45.9 25.2 73.7 16 98.1 25.2C121.4 34 134.4 57.2 130.3 81.7" fill="none" stroke="#D7F2F1" stroke-width="12.5" stroke-linecap="round"/>
+  <circle cx="29" cy="47" r="7.2" fill="#E5AD4F"/>
+  <path d="M76 50V102M50 76H102" fill="none" stroke="#E5AD4F" stroke-width="10" stroke-linecap="round"/>
+</svg>

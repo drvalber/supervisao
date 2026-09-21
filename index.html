@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super.Visão — Supervisão clínica em psiquiatria | Dr. Valber Dias Pinto</title>
+<meta name="description" content="Supervisão clínica em psiquiatria para médicos em residência, pós-graduação ou aprimoramento: plataforma de estudo, discussão de casos reais e supervisão em grupo ou individual. Planos anuais em até 12x.">
+<!-- Página de venda (funil Hotmart). Os endereços oficiais são super-visao.com,
+     psicofarmaco.org e drvalber.com.br, por isso ela não disputa busca com eles:
+     noindex tira do índice, follow mantém o valor dos links indo para os oficiais. -->
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="Super.Visão — Supervisão clínica em psiquiatria para médicos">
+<meta property="og:description" content="Formação que fortalece sua prática em psiquiatria: plataforma de estudo, supervisão em grupo e supervisão individual. Para médicos em residência, pós-graduação ou aprimoramento.">
+<meta property="og:type" content="website">
+<!-- og:url fica de fora de propósito: sem ele, o WhatsApp e as redes usam a URL
+     que a pessoa realmente abriu. Se um dia a página tiver endereço definitivo,
+     descomente e preencha:
+<meta property="og:url" content="https://SEU-ENDERECO-DEFINITIVO/"> -->
+<meta property="og:site_name" content="Super+Visão">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="assets/og-supervisao.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Super+Visão: supervisão clínica em psiquiatria para médicos em residência, pós-graduação ou aprimoramento">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Super.Visão — Supervisão clínica em psiquiatria para médicos">
+<meta name="twitter:description" content="Plataforma de estudo, supervisão em grupo e supervisão individual, conduzidas pelo Dr. Valber Dias Pinto.">
+<meta name="twitter:image" content="assets/og-supervisao.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/marca-super-visao.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#07111f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<!-- =======================================================================
+     PÁGINA DE VENDA / LANÇAMENTO — Super.Visão (Dr. Valber Dias Pinto)
+     Produtor: L&V PSICOLOGIA E PSIQUIATRIA LTDA
+     Links de checkout verificados em 20/09/2026 (HTTP 200 + preço conferido).
+     PENDÊNCIAS MARCADAS NO ARQUIVO COM  [REVISAR]  — ver AVALIACAO.md
+     ======================================================================= -->
+
+<style>
+  :root{
+    --navy-900:#050c17; --navy-800:#07111f; --navy-700:#0b1a2e; --navy-600:#122740;
+    --gold-500:#c9a227; --gold-400:#e0b84c; --gold-200:#f0dca4;
+    --ink-0:#ffffff; --ink-100:#eef3f9; --ink-300:#b9c6d6; --ink-500:#8698ad;
+    --line:rgba(201,162,39,.28); --line-soft:rgba(255,255,255,.10);
+    --ok:#4ec38a;
+    --radius:16px; --radius-sm:10px;
+    --maxw:1120px;
+    --shadow:0 18px 44px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--navy-800); color:var(--ink-100);
+    font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:"Source Serif 4",Georgia,serif; line-height:1.2; font-weight:600}
+  a{color:var(--gold-200); text-decoration:none}
+  a:hover{color:var(--gold-400)}
+  img{max-width:100%; height:auto; display:block}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  .eyebrow{
+    font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-400);
+    font-weight:700; margin:0 0 14px;
+  }
+  .hand{font-family:"Source Serif 4",Georgia,serif; font-style:italic; color:var(--gold-200)}
+
+  /* ---------- barra superior ---------- */
+  header.top{
+    position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+    background:rgba(5,12,23,.82); border-bottom:1px solid var(--line-soft);
+  }
+  .top-in{display:flex; align-items:center; gap:20px; justify-content:space-between; min-height:64px}
+  .brand{display:flex; align-items:center; gap:10px; font-family:"Source Serif 4",serif; font-size:20px; color:#fff; font-weight:700}
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--gold-400); box-shadow:0 0 14px var(--gold-400)}
+  nav.menu{display:flex; gap:22px; font-size:14.5px}
+  nav.menu a{color:var(--ink-300)}
+  @media (max-width:860px){ nav.menu{display:none} }
+
+  /* ---------- botões ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px;
+    padding:14px 24px; border-radius:999px; font-weight:700; font-size:15.5px;
+    border:1px solid transparent; cursor:pointer; transition:.18s transform,.18s filter;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403}
+  .btn-ghost{border-color:var(--line); color:var(--gold-200); background:rgba(201,162,39,.06)}
+  .btn-wa{background:#1f8f5f; color:#fff}
+  .btn-sm{padding:11px 18px; font-size:14.5px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 44px; position:relative; overflow:hidden}
+  .hero:before{
+    content:""; position:absolute; inset:-30% -10% auto -10%; height:70%;
+    background:radial-gradient(60% 60% at 50% 0%,rgba(201,162,39,.20),transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:30px} }
+  .hero h1{font-size:clamp(30px,4.6vw,52px); margin:0 0 18px; color:#fff}
+  .hero p.lead{font-size:18px; color:var(--ink-300); max-width:56ch; margin:0 0 26px}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:22px}
+  .trust{display:flex; flex-wrap:wrap; gap:10px 20px; font-size:14px; color:var(--ink-300)}
+  .trust span{display:flex; align-items:center; gap:8px}
+  .trust b{color:var(--gold-400); font-weight:700}
+  .hero-card{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    background:linear-gradient(180deg,rgba(18,39,64,.55),rgba(7,17,31,.35)); box-shadow:var(--shadow);
+  }
+  .hero-card img{width:100%}
+  /* hero clicável: leva à plataforma */
+  a.hero-link{display:block; position:relative; text-decoration:none; transition:.2s transform,.2s border-color}
+  a.hero-link:hover{transform:translateY(-2px); border-color:var(--gold-500)}
+  a.hero-link .hint{
+    position:absolute; left:14px; bottom:14px; display:inline-flex; align-items:center; gap:8px;
+    background:rgba(5,12,23,.88); border:1px solid var(--line); color:var(--gold-200);
+    font-family:"DM Sans",sans-serif; font-size:13.5px; font-weight:700; padding:9px 15px; border-radius:999px;
+    backdrop-filter:blur(6px); transition:.2s background,.2s color;
+  }
+  a.hero-link:hover .hint{background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403; border-color:transparent}
+
+  /* ---------- faixas ---------- */
+  .band{border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); background:var(--navy-900)}
+  .band .wrap{padding-top:26px; padding-bottom:26px}
+  .quote{
+    text-align:center; font-family:"Source Serif 4",serif; font-size:clamp(19px,2.4vw,27px);
+    color:#fff; margin:0; font-style:italic;
+  }
+  .quote small{display:block; font-style:normal; font-family:"DM Sans",sans-serif; font-size:13px;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--gold-400); margin-top:12px}
+
+  section{padding:64px 0}
+  section.alt{background:var(--navy-900)}
+  h2.sec{font-size:clamp(24px,3.4vw,38px); color:#fff; margin:0 0 14px}
+  .sec-sub{color:var(--ink-300); max-width:70ch; margin:0 0 34px}
+
+  /* ---------- grids ---------- */
+  .grid{display:grid; gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:980px){ .g4{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:640px){ .g4,.g3,.g2{grid-template-columns:1fr} }
+  .card{
+    border:1px solid var(--line-soft); border-radius:var(--radius); padding:22px;
+    background:linear-gradient(180deg,rgba(18,39,64,.40),rgba(7,17,31,.20));
+  }
+  .card h3{margin:0 0 8px; font-size:18px; color:#fff}
+  .card p{margin:0; color:var(--ink-300); font-size:15.3px}
+  .num{font-family:"Source Serif 4",serif; color:var(--gold-400); font-size:14px; letter-spacing:.14em}
+
+  /* ---------- vídeo ---------- */
+  .video-wrap{display:grid; grid-template-columns:340px 1fr; gap:38px; align-items:center}
+  @media (max-width:820px){ .video-wrap{grid-template-columns:1fr} }
+  .phone{
+    border:1px solid var(--line); border-radius:26px; padding:10px; background:#04070d;
+    box-shadow:var(--shadow); max-width:340px; margin:0 auto;
+  }
+  .phone video{width:100%; border-radius:18px; display:block; background:#000}
+
+  /* ---------- planos ---------- */
+  .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch}
+  @media (max-width:1000px){ .plans{grid-template-columns:1fr 1fr} }
+  @media (max-width:680px){ .plans{grid-template-columns:1fr} }
+  .plan{
+    position:relative; border:1px solid var(--line-soft); border-radius:var(--radius); padding:26px 22px 24px;
+    background:linear-gradient(180deg,rgba(18,39,64,.42),rgba(5,12,23,.30));
+    display:flex; flex-direction:column;
+  }
+  .plan.best{border-color:var(--gold-500); background:linear-gradient(180deg,rgba(201,162,39,.16),rgba(5,12,23,.30)); box-shadow:var(--shadow)}
+  .badge{
+    position:absolute; top:-13px; left:22px; background:linear-gradient(180deg,var(--gold-400),var(--gold-500));
+    color:#1b1403; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    padding:6px 12px; border-radius:999px;
+  }
+  .plan h3{margin:6px 0 4px; font-size:20px; color:#fff}
+  .plan .price{font-family:"Source Serif 4",serif; font-size:34px; color:#fff; margin:10px 0 2px}
+  .plan .price small{font-family:"DM Sans",sans-serif; font-size:15px; color:var(--ink-300); font-weight:400}
+  .plan .annual{font-size:13.5px; color:var(--ink-500); margin:0 0 16px}
+  .plan ul{list-style:none; padding:0; margin:0 0 22px; display:grid; gap:9px}
+  .plan li{position:relative; padding-left:24px; font-size:15px; color:var(--ink-100)}
+  .plan li:before{content:""; position:absolute; left:0; top:.55em; width:12px; height:12px; border-radius:50%;
+    background:rgba(201,162,39,.18); border:1px solid var(--gold-500)}
+  .plan li:after{content:""; position:absolute; left:4px; top:calc(.55em + 4px); width:4px; height:4px; border-radius:50%; background:var(--gold-400)}
+  .plan .foot{margin-top:auto}
+  .plan .saving{font-size:13.5px; color:var(--ok); margin:0 0 14px}
+  .payline{margin-top:22px; text-align:center; color:var(--ink-500); font-size:14px}
+  .payline b{color:var(--ink-300)}
+
+  /* ---------- ecossistema ---------- */
+  .eco a.card{display:block; transition:.18s border-color}
+  .eco a.card:hover{border-color:var(--line)}
+  .eco .tag{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-400); font-weight:700}
+  .eco .url{color:var(--ink-500); font-size:13.5px}
+
+  /* ---------- destaque: aula de lançamento (YouTube) ---------- */
+  .destaque{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:30px; align-items:center;
+    border:1px solid var(--gold-500); border-radius:var(--radius); padding:22px;
+    background:linear-gradient(135deg,rgba(201,162,39,.15),rgba(5,12,23,.45)); box-shadow:var(--shadow);
+  }
+  @media (max-width:860px){ .destaque{grid-template-columns:1fr; gap:22px} }
+  .yt-facade{position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; cursor:pointer;
+    background:#04070d; border:1px solid var(--line-soft)}
+  .yt-facade img{width:100%; height:100%; object-fit:cover; display:block; opacity:.92; transition:.2s opacity}
+  .yt-facade:hover img{opacity:1}
+  .yt-facade .play{position:absolute; inset:0; display:grid; place-items:center}
+  .yt-facade .play span{
+    width:74px; height:74px; border-radius:50%; display:grid; place-items:center; padding-left:5px;
+    background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403; font-size:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.55); transition:.2s transform;
+  }
+  .yt-facade:hover .play span{transform:scale(1.06)}
+  .yt-facade iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  .tag-live{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(201,162,39,.16);
+    border:1px solid var(--line); color:var(--gold-200); font-size:12px; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; padding:7px 13px; border-radius:999px; margin:0 0 14px;
+  }
+
+  /* ---------- instagram ---------- */
+  .ig-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  @media (max-width:980px){ .ig-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:680px){ .ig-grid{grid-template-columns:repeat(2,1fr)} }
+  a.ig-card{border:1px solid var(--line-soft); border-radius:12px; overflow:hidden; background:rgba(18,39,64,.28);
+    display:flex; flex-direction:column; transition:.18s transform,.18s border-color}
+  a.ig-card:hover{transform:translateY(-2px); border-color:var(--line)}
+  .ig-media{position:relative; aspect-ratio:4/5; overflow:hidden; background:#04070d}
+  .ig-media img{width:100%; height:100%; object-fit:cover; display:block}
+  .ig-tag{position:absolute; top:8px; left:8px; background:rgba(5,12,23,.82); border:1px solid var(--line);
+    color:var(--gold-200); font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; backdrop-filter:blur(4px)}
+  .ig-cap{margin:0; padding:11px 12px 13px; font-size:13.4px; line-height:1.45; color:var(--ink-100)}
+
+  /* ---------- faq ---------- */
+  details{border:1px solid var(--line-soft); border-radius:var(--radius-sm); padding:16px 18px; margin-bottom:10px; background:rgba(18,39,64,.26)}
+  details summary{cursor:pointer; font-weight:700; color:#fff; list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:"+"; float:right; color:var(--gold-400)}
+  details[open] summary:after{content:"–"}
+  details p{margin:12px 0 0; color:var(--ink-300); font-size:15.3px}
+
+  /* ---------- rodapé ---------- */
+  footer{background:var(--navy-900); border-top:1px solid var(--line-soft); padding:44px 0 34px; font-size:14.5px; color:var(--ink-500)}
+  footer .frow{display:flex; flex-wrap:wrap; gap:22px; justify-content:space-between; margin-bottom:18px}
+  footer a{color:var(--ink-300)}
+  .legal{font-size:13px; color:var(--ink-500); border-top:1px solid var(--line-soft); padding-top:18px; margin-top:18px}
+  .float-wa{
+    position:fixed; right:18px; bottom:18px; z-index:60; background:#1f8f5f; color:#fff;
+    border-radius:999px; padding:13px 18px; font-weight:700; font-size:14.5px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:9px;
+  }
+  /* ---------- apresentação animada (deck em iframe) ---------- */
+  .deck-facade{
+    position:relative; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; cursor:pointer;
+    border:1px solid var(--line); background:#04070d; box-shadow:var(--shadow);
+    transition:.2s transform,.2s border-color;
+  }
+  .deck-facade:hover{transform:translateY(-2px); border-color:var(--gold-500)}
+  .deck-facade img{width:100%; height:100%; object-fit:cover; opacity:.94; transition:.2s opacity}
+  .deck-facade:hover img{opacity:1}
+  .deck-play{position:absolute; inset:0; display:grid; place-items:center}
+  .deck-play span{
+    width:74px; height:74px; border-radius:50%; display:grid; place-items:center;
+    background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403; font-size:26px;
+    box-shadow:0 10px 30px rgba(0,0,0,.55); transition:.2s transform;
+  }
+  .deck-facade:hover .deck-play span{transform:scale(1.06)}
+  .deck-facade .hint{
+    position:absolute; left:14px; bottom:14px; display:inline-flex; align-items:center; gap:8px;
+    background:rgba(5,12,23,.88); border:1px solid var(--line); color:var(--gold-200);
+    font-size:13.5px; font-weight:700; padding:9px 15px; border-radius:999px; backdrop-filter:blur(6px);
+    transition:.2s background,.2s color;
+  }
+  .deck-facade:hover .hint{background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403; border-color:transparent}
+  .deck-nota{margin:14px 0 0; font-size:14px; color:var(--ink-500)}
+
+  /* o deck tem rolagem e atalhos próprios: roda isolado, em tela cheia */
+  .deck-modal{position:fixed; inset:0; z-index:100; background:var(--navy-900); display:flex; flex-direction:column}
+  .deck-modal[hidden]{display:none}
+  .deck-bar{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:10px 16px; border-bottom:1px solid var(--line-soft); background:rgba(5,12,23,.96);
+  }
+  .deck-bar-t{font-family:"Source Serif 4",serif; font-weight:700; color:#fff; font-size:16px}
+  .deck-bar-a{display:flex; align-items:center; gap:16px; font-size:14px}
+  .deck-x{
+    background:rgba(201,162,39,.08); border:1px solid var(--line); color:var(--gold-200);
+    border-radius:999px; padding:9px 16px; font:inherit; font-weight:700; cursor:pointer; transition:.18s;
+  }
+  .deck-x:hover{background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403; border-color:transparent}
+  .deck-modal iframe{flex:1; width:100%; border:0; display:block; background:var(--navy-800)}
+  body.deck-open{overflow:hidden}
+  @media (max-width:560px){ .deck-bar-t{font-size:14px} .deck-bar-a a{display:none} }
+
+  .pill{display:inline-block; border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size:13px; color:var(--gold-200); margin:0 8px 8px 0}
+  .note{border-left:3px solid var(--gold-500); padding:10px 0 10px 14px; color:var(--ink-300); font-size:14.5px; margin-top:18px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand"><span class="dot"></span> Super<span style="color:var(--gold-400)">+</span>Visão</div>
+    <nav class="menu">
+      <a href="#plataforma">A plataforma</a>
+      <a href="#aula">Aula aberta</a>
+      <a href="#frentes">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#ecossistema">Ecossistema</a>
+      <a href="#professor">Professor</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn btn-gold btn-sm" href="#planos">Fazer parte</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Para médicos • Residência, pós-graduação e aprimoramento</p>
+      <h1>Formação que fortalece sua prática em psiquiatria.</h1>
+      <p class="lead">Você não está sozinho nessa jornada. Uma plataforma criada por especialistas para apoiar médicos
+      em residência, pós-graduação ou aprimoramento clínico — com conteúdo de qualidade e supervisão em diferentes
+      formatos.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#planos">Conhecer os planos →</a>
+        <a class="btn btn-ghost" href="https://super-visao.com/" target="_blank" rel="noopener">Ver a plataforma</a>
+      </div>
+      <div class="trust">
+        <span><b>✓</b> Conteúdo atualizado</span>
+        <span><b>✓</b> Discussão de casos reais</span>
+        <span><b>✓</b> Desenvolvimento contínuo</span>
+        <span><b>✓</b> Rede de apoio entre profissionais</span>
+      </div>
+    </div>
+    <a class="hero-card hero-link" href="https://super-visao.com/" target="_blank" rel="noopener"
+       aria-label="Conhecer a plataforma Super.Visão (abre em nova aba)">
+      <img src="assets/plataforma-hero.jpg" alt="Tela inicial da plataforma Super.Visão: “Um sinal para ampliar o olhar” — ambiente de consulta, estudo e organização clínica para decisões diagnósticas e terapêuticas">
+      <span class="hint">Conhecer a plataforma →</span>
+    </a>
+  </div>
+</div>
+
+<!-- ============ FAIXA / CITAÇÃO ============ -->
+<div class="band">
+  <div class="wrap">
+    <p class="quote">“A prática clínica se fortalece quando é compartilhada.”
+      <small>Dr. Valber Dias Pinto · Psiquiatra e psicoterapeuta</small>
+    </p>
+  </div>
+</div>
+
+<!-- ============ DESTAQUE: AULA DE LANÇAMENTO (YouTube) ============ -->
+<section id="lancamento" class="band">
+  <div class="wrap">
+    <div class="destaque">
+      <div class="yt-facade" id="ytFacade" role="button" tabindex="0"
+           aria-label="Assistir à aula de lançamento da Mentoria Super+Visão (abre o player do YouTube)"
+           data-video="ZDIcqDM-RHU" data-title="MENTORIA 1 — Lançamento do Aplicativo de Mentoria Super+Visão">
+        <img src="assets/lancamento-yt.jpg" alt="Capa da aula de lançamento da Mentoria Super+Visão, no canal do Dr. Valber Dias Pinto">
+        <div class="play"><span>▶</span></div>
+      </div>
+      <div>
+        <p class="tag-live">★ Destaque · Aula de lançamento</p>
+        <h2 class="sec" style="margin-top:0">Assista à aula de lançamento da plataforma.</h2>
+        <p class="sec-sub">“<strong>Mentoria 1 — Lançamento do Aplicativo de Mentoria Super+Visão</strong>”, no canal
+        <strong>Dr. Valber Dias Pinto</strong> no YouTube. Se você quer entender o que a mentoria entrega — e como a
+        plataforma apoia a decisão clínica no dia a dia — comece por esta aula.</p>
+        <div class="cta-row" style="margin-bottom:0">
+          <a class="btn btn-gold" href="https://youtu.be/ZDIcqDM-RHU?si=zCoBV8hP-oBurP7y" target="_blank" rel="noopener">Assistir no YouTube</a>
+          <a class="btn btn-ghost" href="https://www.youtube.com/@DrValber" target="_blank" rel="noopener">Conhecer o canal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A PLATAFORMA ============ -->
+<section id="plataforma">
+  <div class="wrap">
+    <p class="eyebrow">A plataforma</p>
+    <h2 class="sec">Não é só uma mentoria. É um sistema de suporte.</h2>
+    <p class="sec-sub">Um ambiente digital pensado para o dia a dia da clínica: você prepara, decide, aprofunda e
+    organiza — com o material certo na hora certa.</p>
+
+    <div class="grid g3">
+      <div class="card"><p class="num">01</p><h3>Avaliação e Formulação</h3><p>Roteiros de anamnese e formulação de caso para organizar o raciocínio antes da conduta.</p></div>
+      <div class="card"><p class="num">02</p><h3>Escalas de Avaliação e Triagem</h3><p>Instrumentos com aplicação, pontuação e interpretação reunidos em um só lugar.</p></div>
+      <div class="card"><p class="num">03</p><h3>Farmacologia Clínica</h3><p>Mecanismos, perfis de efeito, interações e ajustes — conectados à decisão clínica.</p></div>
+      <div class="card"><p class="num">04</p><h3>Manejo Psicoterápico</h3><p>Recursos de condução e manejo para sustentar o processo terapêutico.</p></div>
+      <div class="card"><p class="num">05</p><h3>Biblioteca Clínica</h3><p>Diretrizes, evidências e leituras de apoio, com curadoria.</p></div>
+      <div class="card"><p class="num">06</p><h3>Organização do Estudo</h3><p>Journal e Pomodoro para transformar estudo em rotina sustentável.</p></div>
+      <div class="card"><p class="num">07</p><h3>Registros de Supervisão</h3><p>Histórico dos encontros e dos casos discutidos, para não perder o fio.</p></div>
+      <div class="card"><p class="num">08</p><h3>Curadoria do Mentor</h3><p>Seleção de conteúdo e trilhas indicadas pelo Dr. Valber.</p></div>
+      <div class="card"><p class="num">09</p><h3>Acesso Personalizado</h3><p>Seu ambiente, com seus materiais e sua trilha de evolução.</p></div>
+    </div>
+
+    <p class="note">A plataforma é um ambiente de estudo e apoio à decisão clínica. <strong>[REVISAR]</strong> confirmar
+    a descrição exata do módulo “Acesso Personalizado” e se todos os nove módulos estão liberados em todos os planos
+    (hoje o texto dos planos fala em “acesso completo aos conteúdos”, sem detalhar por módulo).</p>
+  </div>
+</section>
+
+<!-- ============ APRESENTAÇÃO ANIMADA (deck interativo) ============ -->
+<section id="apresentacao" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Por dentro</p>
+    <h2 class="sec">A plataforma em movimento.</h2>
+    <p class="sec-sub">Dez cenas animadas mostram como os módulos funcionam na prática: o raciocínio diagnóstico se
+    formando a partir dos achados, a escala cruzando o ponto de corte, o perfil receptorial de cada fármaco e o caminho
+    que um caso percorre até voltar comentado pelo mentor.</p>
+
+    <div class="deck-facade" id="deckFacade" role="button" tabindex="0"
+         aria-label="Abrir a apresentação animada da plataforma">
+      <img src="assets/apresentacao-capa.jpg" loading="lazy"
+           alt="Cena da apresentação: radar do perfil receptorial da quetiapina, com os eixos SERT, 5-HT2A, D2, H1, M1, alfa-1, NET e DAT">
+      <span class="deck-play"><span>▶</span></span>
+      <span class="hint">Abrir apresentação →</span>
+    </div>
+    <p class="deck-nota">Abre aqui mesmo, em tela cheia, e no celular abre na versão vertical. Use as setas ou role para
+    passar de cena. <a href="apresentacao/" target="_blank" rel="noopener">Preferindo, abra em outra aba ↗</a></p>
+  </div>
+</section>
+
+<!-- ============ AMOSTRA DE AULA (vídeo enviado pelo Dr. Valber) ============ -->
+<section id="aula">
+  <div class="wrap video-wrap">
+    <div class="phone">
+      <video src="assets/aula-nbn.mp4" poster="assets/aula-nbn-poster.jpg" controls playsinline preload="metadata"
+             aria-label="Aula: do nome da doença ao mecanismo do fármaco — eixo NBN"></video>
+      <p style="text-align:center; font-size:12.5px; color:var(--ink-500); margin:10px 0 0">1min16 · amostra de aula · material de finalidade educacional</p>
+    </div>
+    <div>
+      <p class="eyebrow">Aula aberta · Farmacologia clínica</p>
+      <h2 class="sec">Do nome da doença ao mecanismo do fármaco.</h2>
+      <p class="sec-sub">Em vez de decorar classes — “antidepressivo”, “antipsicótico”, “ansiolítico” — você aprende a
+      ler o fármaco em quatro camadas: <strong>sistema</strong> → <strong>molécula-alvo</strong> →
+      <strong>ação sobre o alvo</strong> → <strong>consequência de rede</strong>. É o eixo de raciocínio
+      <strong>NBN</strong> (<em>Neuroscience-Based Nomenclature</em>), aplicado a casos.</p>
+      <p class="sec-sub">Nesta amostra, o caso do perfil multidomínio da <strong>Agomelatina</strong>: agonismo
+      melatonérgico (MT1/MT2) e antagonismo serotoninérgico (5-HT2C / 5-HT2B), com o resultado funcional integrado em
+      ritmo, sono e drive cortical — e a distinção que organiza toda a leitura: <em>efeito downstream pertence ao
+      resultado funcional e não altera o modo de ação direto.</em></p>
+      <div class="trust">
+        <span><b>✓</b> Aula incluída na mentoria</span>
+        <span><b>✓</b> Casos clínicos comentados</span>
+        <span><b>✓</b> NBN aplicado à prescrição</span>
+        <span><b>✓</b> Material de finalidade educacional</span>
+      </div>
+      <p class="note" style="margin-top:22px">A mesma lógica de leitura sustenta o módulo de Farmacologia Clínica da
+      plataforma e as ferramentas do <a href="https://psicofarmaco.org/" target="_blank" rel="noopener">psicofarmaco.org</a>
+      (matriz de afinidade, perfis por receptor, enzimas CYP).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURSO DE PSICOFARMACOLOGIA (YouTube) ============ -->
+<section id="curso-psicofarmaco" class="alt">
+  <div class="wrap">
+    <div class="destaque">
+      <div>
+        <p class="tag-live">★ Novo · Entra na mentoria</p>
+        <h2 class="sec" style="margin-top:0">O curso de psicofarmacologia entra na mentoria.</h2>
+        <p class="sec-sub">Assista à aula de lançamento: <strong>53 minutos</strong> em que o Dr. Valber apresenta o
+        curso de psicofarmacologia que passa a integrar a mentoria, a lógica de leitura do fármaco que ele adota e como
+        esse raciocínio chega à decisão do dia a dia.</p>
+        <!-- [REVISAR] quando os módulos do curso estiverem fechados, listar aqui os temas
+             (3 a 5 itens) e dizer em quais planos ele entra. -->
+        <div class="cta-row" style="margin-bottom:0">
+          <a class="btn btn-gold" href="https://youtu.be/yFajjBp9eXI" target="_blank" rel="noopener">Assistir no YouTube</a>
+          <a class="btn btn-ghost" href="#planos">Ver os planos →</a>
+        </div>
+      </div>
+      <div class="yt-facade" role="button" tabindex="0"
+           aria-label="Assistir à aula de lançamento do Curso de Psicofarmacologia (abre o player do YouTube)"
+           data-video="yFajjBp9eXI" data-title="Lançamento do Curso de Psicofarmacologia">
+        <img src="assets/curso-psicofarmaco.jpg" loading="lazy"
+             alt="Capa da aula de lançamento do Curso de Psicofarmacologia, com o Dr. Valber Dias Pinto">
+        <div class="play"><span>▶</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUATRO FRENTES ============ -->
+<section id="frentes" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona</p>
+    <h2 class="sec">Quatro frentes para sustentar o avanço clínico.</h2>
+    <p class="sec-sub">A supervisão não substitui a formação médica — ela organiza o que você já sabe e amplia o que
+    você consegue ver no caso.</p>
+    <div class="grid g4">
+      <div class="card"><h3>Preparar e avaliar</h3><p>Instrumentos e roteiros para chegar à consulta com método.</p></div>
+      <div class="card"><h3>Decidir e conduzir</h3><p>Discussão de casos reais para treinar a decisão, não só a informação.</p></div>
+      <div class="card"><h3>Aprofundar</h3><p>Farmacologia e psicoterapia conectadas à prática, com evidência.</p></div>
+      <div class="card"><h3>Organizar e evoluir</h3><p>Registro dos casos, leitura dirigida e constância de estudo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VÍDEO ============ -->
+<section id="video">
+  <div class="wrap video-wrap">
+    <div class="phone">
+      <video src="assets/vertical.mp4" controls playsinline preload="metadata" poster="assets/hero-supervisao.png"></video>
+    </div>
+    <div>
+      <p class="eyebrow">Veja em movimento</p>
+      <h2 class="sec">O sistema de suporte, em 45 segundos.</h2>
+      <p class="sec-sub">Uma apresentação animada do que a Super.Visão reúne: os módulos de estudo, o raciocínio
+      diagnóstico, a farmacologia clínica e a supervisão em grupo e individual.</p>
+      <p class="hand" style="font-size:18px">Cuidar da sua prática também é investir em vidas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANOS ============ -->
+<section id="planos" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Planos</p>
+    <h2 class="sec">Conheça nossos planos.</h2>
+    <p class="sec-sub">Todos os planos são <strong>anuais, em até 12x</strong> (cartão de crédito, Pix, boleto ou
+    PayPal), com renovação conforme as condições da Hotmart no momento da compra.</p>
+
+    <p class="note" style="margin:0 0 30px"><strong>Acesso exclusivo para médicos.</strong> A plataforma e a supervisão
+    são destinadas a médicos em residência, pós-graduação ou aprimoramento em psiquiatria, e o CRM é solicitado no
+    cadastro. O checkout da Hotmart não verifica registro profissional: confirme que você atende a esse requisito antes
+    de assinar.</p>
+
+    <div class="plans">
+
+      <div class="plan">
+        <h3>Acesso à plataforma</h3>
+        <p class="price">R$ 87<small>/mês</small></p>
+        <p class="annual">Plano de 12 meses · total R$ 1.044</p>
+        <ul>
+          <li>Acesso completo aos conteúdos</li>
+          <li>Atualizações periódicas</li>
+          <li>Liberdade para estudar no seu ritmo</li>
+        </ul>
+        <div class="foot">
+          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/J107663406J" target="_blank" rel="noopener">Assinar este plano</a>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Supervisão em grupo</h3>
+        <p class="price">R$ 297<small>/mês</small></p>
+        <p class="annual">Plano de 12 meses · total R$ 3.564</p>
+        <ul>
+          <li>1 supervisão em grupo por mês</li>
+          <li>3 horas de duração por encontro</li>
+          <li>Discussão de casos</li>
+          <li>Aprendizado a partir das experiências do grupo</li>
+        </ul>
+        <div class="foot">
+          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/W107663464H" target="_blank" rel="noopener">Assinar este plano</a>
+        </div>
+      </div>
+
+      <div class="plan best">
+        <span class="badge">Melhor custo-benefício</span>
+        <h3>Supervisão em grupo + plataforma</h3>
+        <p class="price">R$ 337<small>/mês</small></p>
+        <p class="annual">Plano de 12 meses · total R$ 4.044</p>
+        <p class="saving">Separadamente: R$ 384/mês · você economiza R$ 564 ao longo de 12 meses</p>
+        <ul>
+          <li>1 supervisão em grupo por mês (3h por encontro)</li>
+          <li>Acesso completo à plataforma</li>
+          <li>Conteúdos exclusivos</li>
+          <li>Discussão de casos e desenvolvimento contínuo</li>
+        </ul>
+        <div class="foot">
+          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/T107663505V" target="_blank" rel="noopener">Assinar este plano</a>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Supervisão individual continuada</h3>
+        <p class="price">R$ 800<small>/mês</small></p>
+        <p class="annual">Plano de 12 meses · total R$ 9.600 · cada supervisão sai por R$ 400</p>
+        <ul>
+          <li>2 supervisões individuais por mês (encontros quinzenais)</li>
+          <li>1 hora de duração por supervisão</li>
+          <li>Acompanhamento individualizado</li>
+          <li>Discussão direcionada de casos e demandas profissionais</li>
+        </ul>
+        <div class="foot">
+          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/A107663542G" target="_blank" rel="noopener">Assinar este plano</a>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Supervisão individual avulsa</h3>
+        <p class="price">R$ 600<small>/encontro</small></p>
+        <p class="annual">Sem compromisso de continuidade</p>
+        <ul>
+          <li>1 supervisão individual</li>
+          <li>1 hora de duração</li>
+          <li>Discussão direcionada à demanda apresentada</li>
+        </ul>
+        <!-- [REVISAR] Este plano NÃO tem link de checkout Hotmart entre os quatro enviados.
+             Enquanto não houver link, o botão aponta para o WhatsApp. Troque o href quando tiver. -->
+        <div class="foot">
+          <a class="btn btn-wa btn-sm" style="width:100%" href="https://wa.me/5527992320015?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20supervis%C3%A3o%20individual%20avulsa." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="plan" style="justify-content:center">
+        <h3>Ainda em dúvida?</h3>
+        <p style="color:var(--ink-300); font-size:15.3px; margin:6px 0 18px">Fale direto com o Dr. Valber para entender
+        qual formato faz mais sentido para o seu momento — grupo, individual, com ou sem plataforma.</p>
+        <a class="btn btn-ghost btn-sm" style="width:100%" href="https://wa.me/5527992320015?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20qual%20plano%20da%20Super.Vis%C3%A3o%20combina%20comigo." target="_blank" rel="noopener">Solicitar orientação</a>
+      </div>
+
+    </div>
+
+    <p class="payline"><b>Pagamento:</b> cartão de crédito em até 12x · Pix · boleto · PayPal — processado pela Hotmart
+    em nome de L&amp;V Psicologia e Psiquiatria Ltda.</p>
+  </div>
+</section>
+
+<!-- ============ ECOSSISTEMA ============ -->
+<section id="ecossistema">
+  <div class="wrap">
+    <p class="eyebrow">Ecossistema</p>
+    <h2 class="sec">As ferramentas que sustentam a prática.</h2>
+    <p class="sec-sub">A Super.Visão faz parte de um conjunto de ambientes clínicos — cada um com uma função.</p>
+    <div class="grid g2 eco">
+      <a class="card" href="https://super-visao.com/" target="_blank" rel="noopener">
+        <p class="tag">Plataforma</p>
+        <h3>Super.Visão</h3>
+        <p class="url">super-visao.com</p>
+        <p style="margin-top:8px">Ambiente de estudo, apoio à decisão clínica e registros de supervisão. Acesso restrito a assinantes.</p>
+      </a>
+      <a class="card" href="https://psicofarmaco.org/" target="_blank" rel="noopener">
+        <p class="tag">Referência farmacológica</p>
+        <h3>Psicofarmaco</h3>
+        <p class="url">psicofarmaco.org</p>
+        <p style="margin-top:8px">Bancada de estudo em saúde mental: matriz de afinidade, perfis por receptores, enzimas CYP, comparações e diretrizes CANMAT.</p>
+      </a>
+      <a class="card" href="https://drvalber.com.br/" target="_blank" rel="noopener">
+        <p class="tag">Institucional</p>
+        <h3>Dr. Valber Dias Pinto</h3>
+        <p class="url">drvalber.com.br</p>
+        <p style="margin-top:8px">Docência, aulas e palestras, produção acadêmica e canais de contato do consultório.</p>
+      </a>
+      <a class="card" href="https://drvalber.com.br/aulas-e-palestras" target="_blank" rel="noopener">
+        <p class="tag">Formação</p>
+        <h3>Aulas e palestras</h3>
+        <p class="url">drvalber.com.br/aulas-e-palestras</p>
+        <p style="margin-top:8px">Atividade acadêmica e temas em aula no momento, para conhecer o estilo de ensino antes de assinar.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFESSOR ============ -->
+<section id="professor" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Quem conduz</p>
+    <h2 class="sec">Base científica. Escuta cuidadosa.</h2>
+    <div class="grid g2">
+      <div>
+        <p style="color:var(--ink-300)">Médico psiquiatra e psicoterapeuta em Vitória (ES), com quase duas décadas de
+        docência e atuação clínica em transtornos de humor, transtorno bipolar, TDAH em adultos, ansiedade e burnout.
+        A supervisão nasce da prática: casos reais, decisões reais, condução ética.</p>
+        <p style="margin-top:16px">
+          <span class="pill">Psiquiatria e psicoterapia</span>
+          <span class="pill">Docência em medicina</span>
+          <span class="pill">CANMAT 2023</span>
+          <span class="pill">Farmacologia clínica</span>
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Formação e atuação</h3>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:var(--ink-300); font-size:15.3px">
+          <li><b style="color:#fff">Medicina</b> — Universidade Federal do Espírito Santo (UFES)</li>
+          <li><b style="color:#fff">Mestrado</b> em Ciências Fisiológicas</li>
+          <li><b style="color:#fff">Psiquiatria e psicoterapia</b> — prática clínica em Vitória (ES)</li>
+          <li><b style="color:#fff">Docência</b> — UVV e EMESCAM (cerca de 20 anos)</li>
+          <li><b style="color:#fff">Sociedades</b> — APES e ABP</li>
+          <li><b style="color:#fff">CRM 6408 · RQE 7703</b></li>
+        </ul>
+        <p style="margin:16px 0 0"><a href="https://drvalber.com.br/" target="_blank" rel="noopener">Ver trajetória completa →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPROMISSOS ============ -->
+<div class="band">
+  <div class="wrap" style="text-align:center">
+    <p class="quote" style="font-size:clamp(16px,2vw,21px)">Ética • Ciência • Humanidade • Vidas reais
+      <small>Juntos por uma prática clínica mais consciente e humana.</small>
+    </p>
+  </div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap" style="max-width:860px">
+    <p class="eyebrow">Dúvidas frequentes</p>
+    <h2 class="sec">Antes de assinar.</h2>
+
+    <details open><summary>O que exatamente eu recebo em cada plano?</summary>
+      <p>Cada plano está detalhado na seção de planos: o <strong>Acesso à plataforma</strong> libera os conteúdos e
+      atualizações; a <strong>Supervisão em grupo</strong> inclui um encontro mensal de 3 horas com discussão de casos;
+      o <strong>combo</strong> reúne os dois com desconto; a <strong>Supervisão individual continuada</strong> traz dois
+      encontros individuais por mês; e a <strong>avulsa</strong> é um encontro único, sem continuidade.</p></details>
+
+    <details><summary>Como recebo o acesso depois de pagar?</summary>
+      <p>A compra é processada pela Hotmart, que envia a confirmação e o acesso ao seu e-mail cadastrado. O acesso à
+      plataforma é personalizado. <strong>[REVISAR]</strong> confirmar o passo a passo real de onboarding (e-mail
+      automático? criação de login? contato do mentor?) para descrever aqui com precisão.</p></details>
+
+    <details><summary>Quais as formas de pagamento?</summary>
+      <p>Cartão de crédito em até 12x, Pix, boleto e PayPal — conforme as opções que aparecem no checkout da Hotmart
+      no momento da compra.</p></details>
+
+    <details><summary>Os valores são mensais?</summary>
+      <p>Os planos são <strong>anuais</strong>, com pagamento em até 12 parcelas mensais. Por isso o valor aparece como
+      “R$ 87/mês · plano de 12 meses” (total R$ 1.044) e assim por diante. Todas as condições são exibidas no checkout
+      antes da confirmação.</p></details>
+
+    <details><summary>Como funciona a supervisão individual avulsa?</summary>
+      <p>É um encontro único de 1 hora, focado na demanda que você trouxer, sem compromisso de continuidade — no valor
+      de R$ 600. Neste momento o agendamento é feito pelo WhatsApp.</p></details>
+
+    <details><summary>Há garantia ou política de reembolso?</summary>
+      <p><strong>[REVISAR]</strong> incluir aqui o prazo de garantia e as condições que você define (a Hotmart permite
+      configurar garantia por produto). Não publiquei nenhum prazo para não afirmar algo que ainda não está configurado
+      no checkout.</p></details>
+
+    <details><summary>Sou de outra área da saúde mental. Posso assinar?</summary>
+      <p>A plataforma e a supervisão são destinadas a <strong>médicos</strong> — em residência, pós-graduação ou
+      aprimoramento em psiquiatria — porque o conteúdo trata de decisão diagnóstica e de conduta medicamentosa, e o
+      cadastro solicita CRM. Se você é de outra área e tem interesse no material,
+      <a href="https://wa.me/5527992320015?text=Ol%C3%A1%2C%20n%C3%A3o%20sou%20m%C3%A9dico%20e%20gostaria%20de%20saber%20o%20que%20est%C3%A1%20dispon%C3%ADvel." target="_blank" rel="noopener">fale pelo WhatsApp</a>
+      para saber o que está disponível para o seu caso.</p></details>
+
+    <details><summary>Isso substitui formação médica ou tratamento?</summary>
+      <p>Não. A Super.Visão é um ambiente de <strong>estudo e supervisão clínica</strong> para médicos em formação ou
+      aprimoramento em psiquiatria. Não constitui formação médica, consulta, diagnóstico ou tratamento de pacientes, e
+      não substitui as diretrizes das entidades de classe.</p></details>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM (@dr.valberdiaspinto) ============ -->
+<section id="instagram" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">No dia a dia</p>
+    <h2 class="sec">Do consultório para o feed.</h2>
+    <p class="sec-sub">Conteúdo clínico aberto no Instagram <strong>@dr.valberdiaspinto</strong> —
+    <strong>7.735 seguidores</strong> e <strong>431 publicações</strong>: aulas, jornadas, casos e bastidores da
+    construção da plataforma. É o mesmo olhar que conduz a mentoria.</p>
+    <div class="ig-grid">
+      <a class="ig-card" href="https://www.instagram.com/reel/DW1GJt8gcUl/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: 3 Coisas Que Você Não Deveria Comprar Para Proteger Sua Saúde Mental">
+        <div class="ig-media"><img src="assets/instagram/DW1GJt8gcUl.jpg" alt="3 Coisas Que Você Não Deveria Comprar Para Proteger Sua Saúde Mental" loading="lazy"><span class="ig-tag">Reels</span></div>
+        <p class="ig-cap">3 Coisas Que Você Não Deveria Comprar Para Proteger Sua Saúde Mental</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/reel/C4TzOImvvH2/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: &quot;Abordando a relação entre atividade física, alimentação e saúde menta">
+        <div class="ig-media"><img src="assets/instagram/C4TzOImvvH2.jpg" alt="&quot;Abordando a relação entre atividade física, alimentação e saúde mental. Em recente colaboração com " loading="lazy"><span class="ig-tag">Reels</span></div>
+        <p class="ig-cap">&quot;Abordando a relação entre atividade física, alimentação e saúde mental. Em recente colaboração com o jornal…</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/p/DcmLbvBHytk/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: Conheça um pouco da história da Plataforma Super+Visão!">
+        <div class="ig-media"><img src="assets/instagram/DcmLbvBHytk.jpg" alt="Conheça um pouco da história da Plataforma Super+Visão!" loading="lazy"><span class="ig-tag">Post</span></div>
+        <p class="ig-cap">Conheça um pouco da história da Plataforma Super+Visão!</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/p/Dcg71LAlVv-/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: Novo Site no Ar🎉🎉🎉 Mas não é só o site que é novo, ele marca uma mudan">
+        <div class="ig-media"><img src="assets/instagram/Dcg71LAlVv-.jpg" alt="Novo Site no Ar🎉🎉🎉 Mas não é só o site que é novo, ele marca uma mudança de fase e foco num novo pro" loading="lazy"><span class="ig-tag">Post</span></div>
+        <p class="ig-cap">Novo Site no Ar🎉🎉🎉 Mas não é só o site que é novo, ele marca uma mudança de fase e foco num novo propósito! 👀…</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/reel/DcPCA5JAWHh/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: O que você faz quando um paciente coloca espiritualidade na sessão de ">
+        <div class="ig-media"><img src="assets/instagram/DcPCA5JAWHh.jpg" alt="O que você faz quando um paciente coloca espiritualidade na sessão de terapia? A maioria das formaçõ" loading="lazy"><span class="ig-tag">Reels</span></div>
+        <p class="ig-cap">O que você faz quando um paciente coloca espiritualidade na sessão de terapia? A maioria das formações em…</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/reel/DZFSvXSxH9k/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: O TDAH pode se apresentar de várias maneiras ao longo da vida e geralm">
+        <div class="ig-media"><img src="assets/instagram/DZFSvXSxH9k.jpg" alt="O TDAH pode se apresentar de várias maneiras ao longo da vida e geralmente o quadro é flutuante… vej" loading="lazy"><span class="ig-tag">Reels</span></div>
+        <p class="ig-cap">O TDAH pode se apresentar de várias maneiras ao longo da vida e geralmente o quadro é flutuante… veja esse…</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/p/DY-9tdogGAP/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: Tema riquíssimo de debate entre psiquiatria e geriatria: TDAH e TEA na">
+        <div class="ig-media"><img src="assets/instagram/DY-9tdogGAP.jpg" alt="Tema riquíssimo de debate entre psiquiatria e geriatria: TDAH e TEA na pessoa idosa. Cenas da gravaç" loading="lazy"><span class="ig-tag">Post</span></div>
+        <p class="ig-cap">Tema riquíssimo de debate entre psiquiatria e geriatria: TDAH e TEA na pessoa idosa. Cenas da gravação do…</p>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/reel/DYt_F2dxnne/" target="_blank" rel="noopener" aria-label="Abrir no Instagram: Dois dias de muito aprendizado, troca de experiências, encontros e ref">
+        <div class="ig-media"><img src="assets/instagram/DYt_F2dxnne.jpg" alt="Dois dias de muito aprendizado, troca de experiências, encontros e reflexões sobre os caminhos da sa" loading="lazy"><span class="ig-tag">Reels</span></div>
+        <p class="ig-cap">Dois dias de muito aprendizado, troca de experiências, encontros e reflexões sobre os caminhos da saúde…</p>
+      </a>
+    </div>
+    <div class="cta-row" style="justify-content:center; margin-top:26px">
+      <a class="btn btn-ghost" href="https://www.instagram.com/dr.valberdiaspinto/" target="_blank" rel="noopener">Seguir no Instagram ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="alt" id="comecar">
+  <div class="wrap" style="text-align:center; max-width:760px">
+    <p class="eyebrow">Faça parte</p>
+    <h2 class="sec">Formação que fortalece sua prática profissional.</h2>
+    <p class="sec-sub" style="margin-left:auto; margin-right:auto">Escolha o formato que combina com o seu momento:
+    plataforma, supervisão em grupo, os dois juntos ou supervisão individual.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-gold" href="#planos">Ver os planos →</a>
+      <a class="btn btn-wa" href="https://wa.me/5527992320015?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20a%20Super.Vis%C3%A3o." target="_blank" rel="noopener">Falar sobre a Super.Visão</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RODAPÉ ============ -->
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="dot"></span> Super<span style="color:var(--gold-400)">+</span>Visão</div>
+        <p style="margin:0">Dr. Valber Dias Pinto — Psiquiatra e psicoterapeuta<br>
+        CRM 6408 · RQE 7703 · Vitória (ES)</p>
+      </div>
+      <div>
+        <p style="margin:0 0 6px"><b style="color:var(--ink-300)">Contato</b></p>
+        <p style="margin:0">WhatsApp <a href="https://wa.me/5527992320015" target="_blank" rel="noopener">(27) 99232-0015</a><br>
+        <a href="mailto:valberdiaspinto@abp.org.br">valberdiaspinto@abp.org.br</a></p>
+      </div>
+      <div>
+        <p style="margin:0 0 6px"><b style="color:var(--ink-300)">Ambientes</b></p>
+        <p style="margin:0">
+          <a href="https://super-visao.com/" target="_blank" rel="noopener">super-visao.com</a><br>
+          <a href="https://psicofarmaco.org/" target="_blank" rel="noopener">psicofarmaco.org</a><br>
+          <a href="https://drvalber.com.br/" target="_blank" rel="noopener">drvalber.com.br</a>
+        </p>
+      </div>
+      <div>
+        <p style="margin:0 0 6px"><b style="color:var(--ink-300)">Documentos</b></p>
+        <p style="margin:0">
+          <a href="https://super-visao.com/termos-uso" target="_blank" rel="noopener">Termos de Uso</a><br>
+          <a href="https://super-visao.com/politica-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>
+        </p>
+      </div>
+    </div>
+    <p class="legal">
+      Pagamentos processados pela <strong>Hotmart</strong> em nome de <strong>L&amp;V Psicologia e Psiquiatria Ltda.</strong>
+      <!-- [REVISAR] incluir CNPJ e endereço da empresa — exigidos em página de venda no Brasil -->
+      <br>
+      Conteúdo de caráter educacional e de supervisão clínica, destinado a médicos em residência, pós-graduação ou
+      aprimoramento em psiquiatria. Não constitui consulta, diagnóstico ou tratamento, nem substitui a formação médica
+      regulamentada.
+      <br>© <span id="ano"></span> Super.Visão · Todos os direitos reservados.
+    </p>
+  </div>
+</footer>
+
+<div class="deck-modal" id="deckModal" hidden aria-hidden="true" role="dialog" aria-modal="true"
+     aria-label="Apresentação animada da plataforma Super+Visão">
+  <div class="deck-bar">
+    <span class="deck-bar-t">Super<span style="color:var(--gold-400)">+</span>Visão · apresentação</span>
+    <span class="deck-bar-a">
+      <a id="deckNova" href="apresentacao/" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+      <button type="button" class="deck-x" id="deckFechar">✕ Fechar</button>
+    </span>
+  </div>
+  <iframe id="deckFrame" title="Apresentação animada da plataforma Super+Visão" allowfullscreen></iframe>
+</div>
+
+<a class="float-wa" href="https://wa.me/5527992320015?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Super.Vis%C3%A3o." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Destaques do YouTube: o player só é carregado ao clicar (façade) — a página continua
+  // leve e nenhum cookie do YouTube é criado antes da interação. Vale para todas as
+  // fachadas da página (aula de lançamento e curso de psicofarmacologia).
+  document.querySelectorAll('.yt-facade[data-video]').forEach((yt) => {
+    const carregar = () => {
+      const id = yt.dataset.video;
+      if (!id || yt.querySelector('iframe')) return;
+      yt.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="' +
+        (yt.dataset.title || 'Aula de lançamento') +
+        '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      yt.style.cursor = 'default';
+    };
+    yt.addEventListener('click', carregar);
+    yt.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); carregar(); }
+    });
+  });
+
+  // Apresentação animada: o deck só é carregado quando o visitante pede, então a
+  // página continua leve. Ele tem rolagem, atalhos de teclado e toque próprios, por
+  // isso roda isolado num iframe em tela cheia: embutido no meio da página, prenderia
+  // a rolagem de quem passasse o cursor por cima. O foco do teclado fica dentro do
+  // iframe, então o fechamento é pelo botão (o Esc só responde fora dele).
+  (function () {
+    const facade = document.getElementById('deckFacade');
+    const modal  = document.getElementById('deckModal');
+    const frame  = document.getElementById('deckFrame');
+    const fechar = document.getElementById('deckFechar');
+    const nova   = document.getElementById('deckNova');
+    if (!facade || !modal) return;
+
+    const versao = () => {
+      const mm = window.matchMedia;
+      const estreito = mm
+        ? (mm('(max-width: 820px)').matches || mm('(pointer: coarse)').matches)
+        : window.innerWidth <= 820;     // sem matchMedia, decide pela largura
+      return estreito ? 'apresentacao/index-celular.html' : 'apresentacao/index.html';
+    };
+
+    let foco = null;
+    const abrir = () => {
+      const src = versao();
+      frame.src = src; nova.href = src;
+      modal.hidden = false; modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('deck-open');
+      foco = document.activeElement; fechar.focus();
+    };
+    const encerrar = () => {
+      modal.hidden = true; modal.setAttribute('aria-hidden', 'true');
+      frame.src = 'about:blank';          // para as animações e devolve a memória
+      document.body.classList.remove('deck-open');
+      if (foco) foco.focus();
+    };
+    facade.addEventListener('click', abrir);
+    facade.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); }
+    });
+    fechar.addEventListener('click', encerrar);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) encerrar(); });
+  })();
+
+  // Dados estruturados das ofertas (SEO). Preços e URLs conferidos no checkout.
+  const ld = {
+    "@context":"https://schema.org","@type":"Product","name":"Super.Visão — Supervisão clínica em psiquiatria",
+    "description":"Plataforma de estudo, apoio à decisão clínica e supervisão (em grupo e individual) para médicos em residência, pós-graduação ou aprimoramento em psiquiatria.",
+    "brand":{"@type":"Brand","name":"Super.Visão"},
+    "url":"https://drvalber.com.br/supervisao",
+    "offers":[
+      {"@type":"Offer","name":"Acesso à plataforma","price":"1044.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/J107663406J","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Supervisão em grupo","price":"3564.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/W107663464H","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Supervisão em grupo + acesso à plataforma","price":"4044.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/T107663505V","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Supervisão individual continuada","price":"9600.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/A107663542G","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Supervisão individual avulsa","price":"600.00","priceCurrency":"BRL","availability":"https://schema.org/InStock"}
+    ]
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld);
+  document.head.appendChild(s);
+</script>
+</body>
+</html>
