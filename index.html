@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Super.Visão — Supervisão clínica em psiquiatria | Dr. Valber Dias Pinto</title>
-<meta name="description" content="Supervisão clínica em psiquiatria para médicos em residência, pós-graduação ou aprimoramento: plataforma de estudo, discussão de casos reais e supervisão em grupo ou individual. Planos anuais em até 12x.">
-<!-- Página de venda (funil Hotmart). Os endereços oficiais são super-visao.com,
-     psicofarmaco.org e drvalber.com.br, por isso ela não disputa busca com eles:
-     noindex tira do índice, follow mantém o valor dos links indo para os oficiais. -->
+<title>Super.Visão — Conteúdo e formação em psiquiatria | Dr. Valber Dias Pinto</title>
+<meta name="description" content="Conheça a Super.Visão: plataforma de estudo, apoio à decisão clínica e supervisão em psiquiatria para médicos em residência, pós-graduação ou aprimoramento. Versão só de conteúdo, sem valores.">
+<!-- Página principal SOMENTE CONTEÚDO (sem planos nem checkout). Ao clicar em
+     Planos, o visitante vai para vendas.html (a página enxuta de venda).
+     noindex tira do índice; follow mantém o valor dos links indo para os oficiais. -->
 <meta name="robots" content="noindex, follow">
-<meta property="og:title" content="Super.Visão — Supervisão clínica em psiquiatria para médicos">
-<meta property="og:description" content="Formação que fortalece sua prática em psiquiatria: plataforma de estudo, supervisão em grupo e supervisão individual. Para médicos em residência, pós-graduação ou aprimoramento.">
+<meta property="og:title" content="Super.Visão — Conteúdo e formação em psiquiatria para médicos">
+<meta property="og:description" content="O que a Super.Visão reúne: plataforma de estudo, apoio à decisão clínica e supervisão em psiquiatria. Versão só de conteúdo, para médicos em residência, pós-graduação ou aprimoramento.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://drvalber.github.io/supervisao/">
 <meta property="og:site_name" content="Super+Visão">
@@ -32,10 +32,10 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 
 <!-- =======================================================================
-     PÁGINA DE VENDA / LANÇAMENTO — Super.Visão (Dr. Valber Dias Pinto)
-     Produtor: L&V PSICOLOGIA E PSIQUIATRIA LTDA
-     Links de checkout verificados em 20/09/2026 (HTTP 200 + preço conferido).
-     PENDÊNCIAS MARCADAS NO ARQUIVO COM  [REVISAR]  — ver AVALIACAO.md
+     PÁGINA PRINCIPAL / CONTEÚDO — Super.Visão (Dr. Valber Dias Pinto)
+     Mesmo design system, sem planos, preços, checkout Hotmart nem CTAs de compra.
+     Apresenta o conteúdo; quem quiser participar segue pelo botão "Ver planos",
+     que leva à página enxuta de venda (vendas.html).
      ======================================================================= -->
 
 <style>
@@ -50,15 +50,36 @@
     --shadow:0 18px 44px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth; color-scheme:dark}
   body{
     margin:0; background:var(--navy-800); color:var(--ink-100);
     font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,.serif{font-family:"Source Serif 4",Georgia,serif; line-height:1.2; font-weight:600}
+  h1,h2,h3,.serif{font-family:"Source Serif 4",Georgia,serif; line-height:1.2; font-weight:600; text-wrap:balance}
+  p.lead,.sec-sub{text-wrap:pretty}
   a{color:var(--gold-200); text-decoration:none}
   a:hover{color:var(--gold-400)}
+
+  /* ---------- refinamentos (web-interface-guidelines) ---------- */
+  /* foco visível só quando navega por teclado, sem anel ao clicar */
+  a:focus-visible,.btn:focus-visible,summary:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--gold-400); outline-offset:3px; border-radius:6px;
+  }
+  .btn{touch-action:manipulation}
+  /* âncoras não somem atrás do cabeçalho fixo */
+  section[id],div[id]{scroll-margin-top:84px}
+  /* pular direto ao conteúdo (leitores de tela / teclado) */
+  .skip{
+    position:absolute; left:14px; top:-60px; z-index:80; background:var(--gold-400); color:#1b1403;
+    font-weight:700; padding:10px 16px; border-radius:999px; transition:top .18s;
+  }
+  .skip:focus{top:14px; color:#1b1403}
+  /* respeita quem pediu menos movimento */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none !important; animation:none !important}
+  }
   img{max-width:100%; height:auto; display:block}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
   .eyebrow{
@@ -298,9 +319,24 @@
 
   .pill{display:inline-block; border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size:13px; color:var(--gold-200); margin:0 8px 8px 0}
   .note{border-left:3px solid var(--gold-500); padding:10px 0 10px 14px; color:var(--ink-300); font-size:14.5px; margin-top:18px}
+
+  /* ---------- faixa que leva à página completa (com planos) ---------- */
+  .xlink{
+    display:grid; grid-template-columns:1fr auto; gap:22px; align-items:center;
+    border:1px solid var(--gold-500); border-radius:var(--radius); padding:24px 26px;
+    background:linear-gradient(135deg,rgba(201,162,39,.16),rgba(5,12,23,.45)); box-shadow:var(--shadow);
+  }
+  @media (max-width:720px){ .xlink{grid-template-columns:1fr; text-align:center} }
+  .xlink h3{margin:0 0 6px; font-size:20px; color:#fff}
+  .xlink p{margin:0; color:var(--ink-300); font-size:15px}
+  @media (max-width:720px){ .xlink .btn{justify-self:center} }
+  /* link discreto no topo, de volta à versão de conteúdo/venda */
+  nav.menu a.only-buy{color:var(--gold-200)}
 </style>
 </head>
 <body>
+
+<a class="skip" href="#inicio">Pular para o conteúdo</a>
 
 <header class="top">
   <div class="wrap top-in">
@@ -309,17 +345,17 @@
       <a href="#plataforma">A plataforma</a>
       <a href="#aula">Aula aberta</a>
       <a href="#frentes">Como funciona</a>
-      <a href="#planos">Planos</a>
       <a href="#ecossistema">Ecossistema</a>
       <a href="#professor">Professor</a>
       <a href="#faq">Dúvidas</a>
+      <a href="vendas.html">Planos</a>
     </nav>
-    <a class="btn btn-gold btn-sm" href="#planos">Fazer parte</a>
+    <a class="btn btn-gold btn-sm" href="vendas.html">Ver planos ↗</a>
   </div>
 </header>
 
 <!-- ============ HERO ============ -->
-<div class="hero">
+<div class="hero" id="inicio">
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Para médicos • Residência, pós-graduação e aprimoramento</p>
@@ -328,7 +364,7 @@
       em residência, pós-graduação ou aprimoramento clínico — com conteúdo de qualidade e supervisão em diferentes
       formatos.</p>
       <div class="cta-row">
-        <a class="btn btn-gold" href="#planos">Conhecer os planos →</a>
+        <a class="btn btn-gold" href="vendas.html">Ver planos e participar ↗</a>
         <a class="btn btn-ghost" href="https://super-visao.com/" target="_blank" rel="noopener">Ver a plataforma</a>
       </div>
       <div class="trust">
@@ -473,7 +509,7 @@
              (3 a 5 itens) e dizer em quais planos ele entra. -->
         <div class="cta-row" style="margin-bottom:0">
           <a class="btn btn-gold" href="https://youtu.be/yFajjBp9eXI" target="_blank" rel="noopener">Assistir no YouTube</a>
-          <a class="btn btn-ghost" href="#planos">Ver os planos →</a>
+          <a class="btn btn-ghost" href="https://www.youtube.com/@DrValber" target="_blank" rel="noopener">Conhecer o canal</a>
         </div>
       </div>
       <div class="yt-facade" role="button" tabindex="0"
@@ -519,109 +555,18 @@
   </div>
 </section>
 
-<!-- ============ PLANOS ============ -->
-<section id="planos" class="alt">
+<!-- ============ FAIXA: VER PLANOS (leva à página completa) ============ -->
+<section id="participar" class="alt">
   <div class="wrap">
-    <p class="eyebrow">Planos</p>
-    <h2 class="sec">Conheça nossos planos.</h2>
-    <p class="sec-sub">Todos os planos são <strong>anuais, em até 12x</strong> (cartão de crédito, Pix, boleto ou
-    PayPal), com renovação conforme as condições da Hotmart no momento da compra.</p>
-
-    <p class="note" style="margin:0 0 30px"><strong>Acesso exclusivo para médicos.</strong> A plataforma e a supervisão
-    são destinadas a médicos em residência, pós-graduação ou aprimoramento em psiquiatria, e o CRM é solicitado no
-    cadastro. O checkout da Hotmart não verifica registro profissional: confirme que você atende a esse requisito antes
-    de assinar.</p>
-
-    <div class="plans">
-
-      <div class="plan">
-        <h3>Acesso à plataforma</h3>
-        <p class="price">R$ 87<small>/mês</small></p>
-        <p class="annual">Plano de 12 meses · total R$ 1.044</p>
-        <ul>
-          <li>Acesso completo aos conteúdos</li>
-          <li>Atualizações periódicas</li>
-          <li>Liberdade para estudar no seu ritmo</li>
-        </ul>
-        <div class="foot">
-          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/J107663406J" target="_blank" rel="noopener">Assinar este plano</a>
-        </div>
+    <div class="xlink">
+      <div>
+        <p class="eyebrow" style="margin-bottom:8px">Quer participar?</p>
+        <h3>Os planos e valores ficam na página de planos.</h3>
+        <p>Esta página é só o conteúdo. Para conhecer os formatos — plataforma, supervisão em grupo,
+        combo ou supervisão individual — e os valores, abra a página de planos.</p>
       </div>
-
-      <div class="plan">
-        <h3>Supervisão em grupo</h3>
-        <p class="price">R$ 297<small>/mês</small></p>
-        <p class="annual">Plano de 12 meses · total R$ 3.564</p>
-        <ul>
-          <li>1 supervisão em grupo por mês</li>
-          <li>3 horas de duração por encontro</li>
-          <li>Discussão de casos</li>
-          <li>Aprendizado a partir das experiências do grupo</li>
-        </ul>
-        <div class="foot">
-          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/W107663464H" target="_blank" rel="noopener">Assinar este plano</a>
-        </div>
-      </div>
-
-      <div class="plan best">
-        <span class="badge">Melhor custo-benefício</span>
-        <h3>Supervisão em grupo + plataforma</h3>
-        <p class="price">R$ 337<small>/mês</small></p>
-        <p class="annual">Plano de 12 meses · total R$ 4.044</p>
-        <p class="saving">Separadamente: R$ 384/mês · você economiza R$ 564 ao longo de 12 meses</p>
-        <ul>
-          <li>1 supervisão em grupo por mês (3h por encontro)</li>
-          <li>Acesso completo à plataforma</li>
-          <li>Conteúdos exclusivos</li>
-          <li>Discussão de casos e desenvolvimento contínuo</li>
-        </ul>
-        <div class="foot">
-          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/T107663505V" target="_blank" rel="noopener">Assinar este plano</a>
-        </div>
-      </div>
-
-      <div class="plan">
-        <h3>Supervisão individual continuada</h3>
-        <p class="price">R$ 800<small>/mês</small></p>
-        <p class="annual">Plano de 12 meses · total R$ 9.600 · cada supervisão sai por R$ 400</p>
-        <ul>
-          <li>2 supervisões individuais por mês (encontros quinzenais)</li>
-          <li>1 hora de duração por supervisão</li>
-          <li>Acompanhamento individualizado</li>
-          <li>Discussão direcionada de casos e demandas profissionais</li>
-        </ul>
-        <div class="foot">
-          <a class="btn btn-gold btn-sm" style="width:100%" href="https://pay.hotmart.com/A107663542G" target="_blank" rel="noopener">Assinar este plano</a>
-        </div>
-      </div>
-
-      <div class="plan">
-        <h3>Supervisão individual avulsa</h3>
-        <p class="price">R$ 600<small>/encontro</small></p>
-        <p class="annual">Sem compromisso de continuidade</p>
-        <ul>
-          <li>1 supervisão individual</li>
-          <li>1 hora de duração</li>
-          <li>Discussão direcionada à demanda apresentada</li>
-        </ul>
-        <!-- [REVISAR] Este plano NÃO tem link de checkout Hotmart entre os quatro enviados.
-             Enquanto não houver link, o botão aponta para o WhatsApp. Troque o href quando tiver. -->
-        <div class="foot">
-          <a class="btn btn-wa btn-sm" style="width:100%" href="https://wa.me/5527981800690?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20supervis%C3%A3o%20individual%20avulsa." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="plan" style="justify-content:center">
-        <h3>Ainda em dúvida?</h3>
-        <p style="color:var(--ink-300); font-size:15.3px; margin:6px 0 18px">Fale direto com o Dr. Valber para entender
-        qual formato faz mais sentido para o seu momento — grupo, individual, com ou sem plataforma.</p>
-        <a class="btn btn-ghost btn-sm" style="width:100%" href="https://wa.me/5527981800690?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20qual%20plano%20da%20Super.Vis%C3%A3o%20combina%20comigo." target="_blank" rel="noopener">Solicitar orientação</a>
-      </div>
-
+      <a class="btn btn-gold" href="vendas.html">Ver planos e participar ↗</a>
     </div>
-
-    <p class="payline"><b>Pagamento:</b> cartão de crédito em até 12x · Pix · boleto · PayPal — processado pela Hotmart
-    em nome de L&amp;V Psicologia e Psiquiatria Ltda.</p>
   </div>
 </section>
 
@@ -706,38 +651,23 @@
 <section id="faq">
   <div class="wrap" style="max-width:860px">
     <p class="eyebrow">Dúvidas frequentes</p>
-    <h2 class="sec">Antes de assinar.</h2>
+    <h2 class="sec">Sobre a formação.</h2>
 
-    <details open><summary>O que exatamente eu recebo em cada plano?</summary>
-      <p>Cada plano está detalhado na seção de planos: o <strong>Acesso à plataforma</strong> libera os conteúdos e
-      atualizações; a <strong>Supervisão em grupo</strong> inclui um encontro mensal de 3 horas com discussão de casos;
-      o <strong>combo</strong> reúne os dois com desconto; a <strong>Supervisão individual continuada</strong> traz dois
-      encontros individuais por mês; e a <strong>avulsa</strong> é um encontro único, sem continuidade.</p></details>
+    <details open><summary>O que é a Super.Visão?</summary>
+      <p>É um sistema de suporte à prática clínica em psiquiatria: uma <strong>plataforma de estudo</strong> e apoio à
+      decisão (avaliação, escalas, farmacologia clínica, manejo psicoterápico, biblioteca e organização do estudo) somada
+      à <strong>supervisão clínica</strong> — em grupo ou individual — conduzida pelo Dr. Valber Dias Pinto.</p></details>
 
-    <details><summary>Como recebo o acesso depois de pagar?</summary>
-      <p>A compra é processada pela Hotmart, que envia a confirmação e o acesso ao seu e-mail cadastrado. O acesso à
-      plataforma é personalizado. <strong>[REVISAR]</strong> confirmar o passo a passo real de onboarding (e-mail
-      automático? criação de login? contato do mentor?) para descrever aqui com precisão.</p></details>
+    <details><summary>Como funciona a supervisão?</summary>
+      <p>A supervisão parte de <strong>casos reais</strong>: você leva a demanda, e o encontro organiza o raciocínio
+      diagnóstico e a conduta. Ela não substitui a formação médica — organiza o que você já sabe e amplia o que você
+      consegue ver no caso.</p></details>
 
-    <details><summary>Quais as formas de pagamento?</summary>
-      <p>Cartão de crédito em até 12x, Pix, boleto e PayPal — conforme as opções que aparecem no checkout da Hotmart
-      no momento da compra.</p></details>
+    <details><summary>Para quem é?</summary>
+      <p>Para <strong>médicos</strong> em residência, pós-graduação ou aprimoramento em psiquiatria. O conteúdo trata de
+      decisão diagnóstica e de conduta medicamentosa, por isso é de uso exclusivo por médicos.</p></details>
 
-    <details><summary>Os valores são mensais?</summary>
-      <p>Os planos são <strong>anuais</strong>, com pagamento em até 12 parcelas mensais. Por isso o valor aparece como
-      “R$ 87/mês · plano de 12 meses” (total R$ 1.044) e assim por diante. Todas as condições são exibidas no checkout
-      antes da confirmação.</p></details>
-
-    <details><summary>Como funciona a supervisão individual avulsa?</summary>
-      <p>É um encontro único de 1 hora, focado na demanda que você trouxer, sem compromisso de continuidade — no valor
-      de R$ 600. Neste momento o agendamento é feito pelo WhatsApp.</p></details>
-
-    <details><summary>Há garantia ou política de reembolso?</summary>
-      <p><strong>[REVISAR]</strong> incluir aqui o prazo de garantia e as condições que você define (a Hotmart permite
-      configurar garantia por produto). Não publiquei nenhum prazo para não afirmar algo que ainda não está configurado
-      no checkout.</p></details>
-
-    <details><summary>Sou de outra área da saúde mental. Posso assinar?</summary>
+    <details><summary>Sou de outra área da saúde mental. Posso participar?</summary>
       <p>A plataforma e a supervisão são destinadas a <strong>médicos</strong> — em residência, pós-graduação ou
       aprimoramento em psiquiatria — porque o conteúdo trata de decisão diagnóstica e de conduta medicamentosa, e o
       cadastro solicita CRM. Se você é de outra área e tem interesse no material,
@@ -804,11 +734,11 @@
   <div class="wrap" style="text-align:center; max-width:760px">
     <p class="eyebrow">Faça parte</p>
     <h2 class="sec">Formação que fortalece sua prática profissional.</h2>
-    <p class="sec-sub" style="margin-left:auto; margin-right:auto">Escolha o formato que combina com o seu momento:
-    plataforma, supervisão em grupo, os dois juntos ou supervisão individual.</p>
+    <p class="sec-sub" style="margin-left:auto; margin-right:auto">Se o conteúdo faz sentido para o seu momento, os
+    formatos e valores — plataforma, supervisão em grupo, combo ou supervisão individual — estão na página completa.</p>
     <div class="cta-row" style="justify-content:center">
-      <a class="btn btn-gold" href="#planos">Ver os planos →</a>
-      <a class="btn btn-wa" href="https://wa.me/5527981800690?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20a%20Super.Vis%C3%A3o." target="_blank" rel="noopener">Falar sobre a Super.Visão</a>
+      <a class="btn btn-gold" href="vendas.html">Ver planos e participar ↗</a>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@DrValber" target="_blank" rel="noopener">Conhecer o canal</a>
     </div>
   </div>
 </section>
@@ -844,8 +774,8 @@
       </div>
     </div>
     <p class="legal">
-      Pagamentos processados pela <strong>Hotmart</strong> em nome de <strong>L&amp;V Psicologia e Psiquiatria Ltda.</strong>
-      <!-- [REVISAR] incluir CNPJ e endereço da empresa — exigidos em página de venda no Brasil -->
+      Esta página é só o conteúdo. Para planos, valores e assinatura, veja a
+      <a href="vendas.html">página de planos</a>.
       <br>
       Conteúdo de caráter educacional e de supervisão clínica, destinado a médicos em residência, pós-graduação ou
       aprimoramento em psiquiatria. Não constitui consulta, diagnóstico ou tratamento, nem substitui a formação médica
@@ -866,8 +796,6 @@
   </div>
   <iframe id="deckFrame" title="Apresentação animada da plataforma Super+Visão" allowfullscreen></iframe>
 </div>
-
-<a class="float-wa" href="https://wa.me/5527981800690?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Super.Vis%C3%A3o." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
 
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
@@ -932,24 +860,6 @@
     fechar.addEventListener('click', encerrar);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) encerrar(); });
   })();
-
-  // Dados estruturados das ofertas (SEO). Preços e URLs conferidos no checkout.
-  const ld = {
-    "@context":"https://schema.org","@type":"Product","name":"Super.Visão — Supervisão clínica em psiquiatria",
-    "description":"Plataforma de estudo, apoio à decisão clínica e supervisão (em grupo e individual) para médicos em residência, pós-graduação ou aprimoramento em psiquiatria.",
-    "brand":{"@type":"Brand","name":"Super.Visão"},
-    "url":"https://drvalber.com.br/supervisao",
-    "offers":[
-      {"@type":"Offer","name":"Acesso à plataforma","price":"1044.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/J107663406J","availability":"https://schema.org/InStock"},
-      {"@type":"Offer","name":"Supervisão em grupo","price":"3564.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/W107663464H","availability":"https://schema.org/InStock"},
-      {"@type":"Offer","name":"Supervisão em grupo + acesso à plataforma","price":"4044.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/T107663505V","availability":"https://schema.org/InStock"},
-      {"@type":"Offer","name":"Supervisão individual continuada","price":"9600.00","priceCurrency":"BRL","url":"https://pay.hotmart.com/A107663542G","availability":"https://schema.org/InStock"},
-      {"@type":"Offer","name":"Supervisão individual avulsa","price":"600.00","priceCurrency":"BRL","availability":"https://schema.org/InStock"}
-    ]
-  };
-  const s = document.createElement('script');
-  s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld);
-  document.head.appendChild(s);
 </script>
 </body>
 </html>
