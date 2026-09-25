@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Questionário DIVA 2.0 — Dr. Valber Dias Pinto</title>
+<meta name="description" content="Questionário DIVA 2.0 (Partes 1 e 2) para o paciente preencher no celular e enviar em PDF ao Dr. Valber Dias Pinto.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07111f">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../assets/marca-super-visao.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#050c17; --navy-800:#07111f; --navy-700:#0b1a2e; --navy-600:#10233d;
+    --gold-500:#c9a227; --gold-400:#e0b84c; --gold-200:#f0dca4;
+    --ink-0:#ffffff; --ink-100:#eef3f9; --ink-300:#b9c6d6; --ink-500:#8fa1b6;
+    --line:rgba(201,162,39,.30); --line-soft:rgba(255,255,255,.10);
+    --ok:#35d07f; --warn:#f0b35a;
+    --radius:16px; --maxw:680px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--navy-800); color:var(--ink-100);
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(96px + env(safe-area-inset-bottom));
+  }
+  h1,h2,h3{font-family:"Source Serif 4",Georgia,serif; line-height:1.15; font-weight:600; color:#fff; margin:0}
+  p{margin:0}
+  a{color:var(--gold-200)}
+  button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:2px solid var(--gold-400); outline-offset:2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+  .muted{color:var(--ink-300)}
+  .small{font-size:14px}
+
+  /* topo */
+  .topo{padding:20px 0 8px; display:flex; align-items:center; gap:12px}
+  .topo img{width:40px; height:40px}
+  .topo .marca{font-family:"Source Serif 4",Georgia,serif; font-size:20px; color:#fff}
+  .topo .marca b{color:var(--gold-400); font-weight:600}
+
+  .hero{padding:12px 0 8px}
+  .hero h1{font-size:clamp(26px,6vw,34px); margin-bottom:10px}
+  .hero .lead{font-size:16.5px; color:var(--ink-300)}
+  .aviso{margin-top:16px; padding:14px 16px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(201,162,39,.06); font-size:15px}
+  .aviso b{color:var(--gold-200)}
+
+  /* progresso fixo */
+  .progresso{position:sticky; top:0; z-index:20; background:rgba(7,17,31,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft); padding:10px 0}
+  .progresso .linha{display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--ink-300); margin-bottom:6px}
+  .progresso .linha b{color:var(--gold-200); font-weight:500}
+  .barra{height:6px; border-radius:99px; background:rgba(255,255,255,.10); overflow:hidden}
+  .barra i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--gold-500),var(--gold-400)); transition:width .25s}
+
+  /* identificação */
+  .card{background:var(--navy-700); border:1px solid var(--line-soft); border-radius:var(--radius); padding:18px 16px; margin-top:16px}
+  .campos{display:grid; grid-template-columns:1fr; gap:12px}
+  @media (min-width:520px){ .campos{grid-template-columns:2fr 1fr 1.2fr} }
+  .campo{display:grid; gap:6px; font-size:13px; color:var(--ink-300); text-transform:uppercase; letter-spacing:.04em}
+  .campo input,.card textarea{
+    width:100%; font:inherit; font-size:17px; letter-spacing:0; text-transform:none; color:#fff;
+    background:var(--navy-600); border:1px solid var(--line-soft); border-radius:12px; padding:12px 14px; min-height:48px;
+  }
+  .card textarea{min-height:110px; resize:vertical}
+
+  /* partes e itens */
+  .parte{margin-top:28px}
+  .parte-cab{display:flex; align-items:baseline; gap:12px; padding-bottom:10px; border-bottom:1px solid var(--line)}
+  .parte-cab .num{font-family:"Source Serif 4",Georgia,serif; font-size:14px; color:var(--gold-400); letter-spacing:.08em; text-transform:uppercase}
+  .parte-cab h2{font-size:24px}
+  .parte-intro{margin-top:10px; color:var(--ink-300); font-size:15px}
+
+  .item{margin-top:18px; background:var(--navy-700); border:1px solid var(--line-soft); border-radius:var(--radius); overflow:hidden}
+  .item.ok{border-color:rgba(53,208,127,.45)}
+  .item-cab{padding:16px 16px 12px}
+  .item-cab .tag{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.06em; color:#1b1403; background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); border-radius:999px; padding:3px 10px; margin-bottom:8px}
+  .item-cab h3{font-size:19px; margin-bottom:6px}
+  .item-cab .pergunta{color:var(--ink-300); font-size:15.5px}
+
+  .bloco{border-top:1px solid var(--line-soft); padding:14px 16px 16px}
+  .bloco.infancia{background:rgba(255,255,255,.025)}
+  .bloco-cab{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:10px}
+  .bloco-cab .titulo{font-weight:700; color:#fff; font-size:15px}
+  .bloco-cab .dica{font-size:13px; color:var(--ink-500)}
+  .opcoes{display:grid; gap:8px}
+  .opcao{
+    display:flex; align-items:flex-start; gap:12px; padding:11px 12px; border-radius:12px;
+    background:var(--navy-600); border:1px solid transparent; cursor:pointer; -webkit-tap-highlight-color:transparent;
+    font-size:16px; line-height:1.4; min-height:48px;
+  }
+  .opcao:has(input:checked){border-color:var(--gold-500); background:rgba(201,162,39,.12)}
+  .opcao input{appearance:none; -webkit-appearance:none; flex:0 0 auto; width:22px; height:22px; margin:1px 0 0; border-radius:6px; border:2px solid var(--ink-500); background:transparent; display:grid; place-content:center}
+  .opcao input:checked{border-color:var(--gold-400); background:var(--gold-400)}
+  .opcao input:checked::after{content:""; width:11px; height:6px; border:2.5px solid #1b1403; border-top:0; border-right:0; transform:rotate(-45deg) translate(1px,-1px)}
+  .opcao.nenhum{background:transparent; border:1px dashed var(--line-soft); color:var(--ink-300)}
+  .opcao.nenhum:has(input:checked){border-style:solid; border-color:var(--ink-300); background:rgba(255,255,255,.06); color:#fff}
+  .opcao.nenhum input:checked{background:var(--ink-300); border-color:var(--ink-300)}
+  .nota{font-size:13px; color:var(--ink-500); margin-top:8px; font-style:italic}
+  .outros{margin-top:10px; display:grid; gap:6px; font-size:13px; color:var(--ink-500)}
+  .outros input{width:100%; font:inherit; font-size:16px; color:#fff; background:transparent; border:0; border-bottom:1px solid var(--line-soft); padding:8px 2px; min-height:44px; border-radius:0}
+  .outros input:focus{border-bottom-color:var(--gold-400); outline:none}
+
+  /* rodapé de ação */
+  .acoes{position:fixed; left:0; right:0; bottom:0; z-index:30; background:rgba(7,17,31,.96); backdrop-filter:blur(10px); border-top:1px solid var(--line); padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+  .acoes .wrap{display:flex; gap:10px; align-items:center}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid transparent; border-radius:999px;
+    padding:14px 20px; font:inherit; font-weight:700; font-size:16px; cursor:pointer; min-height:52px; flex:1; transition:transform .12s;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-400),var(--gold-500)); color:#1b1403}
+  .btn-gold[disabled]{opacity:.55; cursor:default}
+  .btn-ghost{border-color:var(--line); color:var(--gold-200); background:rgba(201,162,39,.06); flex:0 0 auto; padding:14px 16px}
+  .msg{margin:14px 0 0; padding:12px 14px; border-radius:12px; font-size:15px; display:none}
+  .msg.mostrar{display:block}
+  .msg.aviso-msg{background:rgba(240,179,90,.12); border:1px solid rgba(240,179,90,.5); color:#ffe1b3}
+  .msg.ok-msg{background:rgba(53,208,127,.12); border:1px solid rgba(53,208,127,.5); color:#c8f5dd}
+  .final{margin-top:28px}
+  .final ol{margin:8px 0 0; padding-left:20px; color:var(--ink-300); font-size:15px}
+  .final li{margin-bottom:4px}
+  .rodape{margin-top:32px; padding-top:16px; border-top:1px solid var(--line-soft); font-size:13px; color:var(--ink-500)}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .barra i,.btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="wrap topo">
+  <img src="../assets/marca-super-visao.svg" alt="" width="40" height="40">
+  <div class="marca">Super<b>+</b>Visão <span class="muted small">· Dr. Valber Dias Pinto</span></div>
+</header>
+
+<section class="wrap hero">
+  <h1>Questionário DIVA 2.0</h1>
+  <p class="lead">Aqui estão exemplos de situações de <b>desatenção</b> e de <b>hiperatividade ou impulsividade</b>. Leia com calma e marque os que fazem sentido para você. Não existe resposta certa ou errada.</p>
+  <div class="aviso">
+    <b>Como funciona:</b> em cada pergunta há um bloco para <b>hoje, na vida adulta</b>, e outro para <b>a infância</b> (dos 5 aos 12 anos). Ao terminar, toque em <b>Gerar PDF</b> e envie o arquivo ao Dr. Valber pelo WhatsApp. Nada é enviado automaticamente: as respostas ficam só no seu celular até você gerar o PDF.
+  </div>
+</section>
+
+<div class="progresso" id="progresso" aria-live="polite">
+  <div class="wrap">
+    <div class="linha"><span><b id="prog-texto">0 de 36 blocos</b> respondidos</span><span id="prog-marcados">0 exemplos marcados</span></div>
+    <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="36" aria-valuenow="0" id="prog-barra"><i></i></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="card" id="identificacao">
+    <div class="campos">
+      <label class="campo">Seu nome<input id="nome" type="text" autocomplete="name" placeholder="Nome completo"></label>
+      <label class="campo">Idade<input id="idade" type="text" inputmode="numeric" placeholder="Ex.: 34"></label>
+      <label class="campo">Data de hoje<input id="data" type="date"></label>
+    </div>
+  </section>
+
+  <div id="partes"></div>
+
+  <section class="card">
+    <label class="campo" for="observacoes">Algo mais que queira contar (opcional)</label>
+    <textarea id="observacoes" placeholder="Situações do dia a dia, exemplos seus, dúvidas..."></textarea>
+  </section>
+
+  <section class="final">
+    <h2 style="font-size:22px">Para terminar</h2>
+    <ol>
+      <li>Confira se o seu nome está preenchido lá em cima.</li>
+      <li>Toque em <b>Gerar PDF</b>. No celular, vai abrir a opção de compartilhar: escolha o WhatsApp e envie ao Dr. Valber. Se abrir só o download, envie o arquivo salvo.</li>
+      <li>Leve suas dúvidas para a consulta. Este questionário é um apoio à conversa, não um diagnóstico.</li>
+    </ol>
+    <div class="msg" id="msg" role="status"></div>
+  </section>
+
+  <footer class="rodape">
+    DIVA 2.0 — Diagnostic Interview for ADHD in Adults (Kooij JJS, Francken MH; DIVA Foundation, 2010). Adaptação para autopreenchimento das Partes 1 e 2, para uso na consulta com o Dr. Valber Dias Pinto. Suas respostas ficam apenas neste aparelho.
+  </footer>
+</main>
+
+<div class="acoes">
+  <div class="wrap">
+    <button class="btn btn-ghost" type="button" id="btn-limpar" aria-label="Limpar todas as respostas">Limpar</button>
+    <button class="btn btn-gold" type="button" id="btn-pdf">Gerar PDF e enviar</button>
+  </div>
+</div>
+
+<script src="assets/vendor/jspdf.umd.min.js"></script>
+<script src="assets/diva-dados.js"></script>
+<script src="assets/diva-pdf.js"></script>
+<script>
+(function () {
+  var DADOS = window.DIVA_DADOS;
+  var CHAVE = "diva-paciente-rascunho-v1";
+  var estado = carregar();
+
+  function novoEstado() {
+    var e = { identificacao: { nome: "", idade: "", data: hoje() }, observacoes: "" };
+    DADOS.partes.forEach(function (p) {
+      e[p.id] = {};
+      p.itens.forEach(function (it) { e[p.id][it.id] = { adulto: { marcados: [], nenhum: false, outros: "" }, infancia: { marcados: [], nenhum: false, outros: "" } }; });
+    });
+    return e;
+  }
+  function hoje() {
+    var d = new Date(), m = String(d.getMonth() + 1).padStart(2, "0"), dia = String(d.getDate()).padStart(2, "0");
+    return d.getFullYear() + "-" + m + "-" + dia;
+  }
+  function carregar() {
+    var base = novoEstado();
+    try {
+      var salvo = JSON.parse(localStorage.getItem(CHAVE) || "null");
+      if (!salvo) return base;
+      if (salvo.identificacao) base.identificacao = { nome: String(salvo.identificacao.nome || ""), idade: String(salvo.identificacao.idade || ""), data: String(salvo.identificacao.data || hoje()) };
+      base.observacoes = String(salvo.observacoes || "");
+      DADOS.partes.forEach(function (p) {
+        p.itens.forEach(function (it) {
+          var s = salvo[p.id] && salvo[p.id][it.id];
+          if (!s) return;
+          ["adulto", "infancia"].forEach(function (per) {
+            var b = s[per] || {};
+            var validos = it[per];
+            base[p.id][it.id][per] = {
+              marcados: Array.isArray(b.marcados) ? b.marcados.filter(function (m) { return validos.indexOf(m) >= 0; }) : [],
+              nenhum: b.nenhum === true,
+              outros: String(b.outros || "")
+            };
+          });
+        });
+      });
+    } catch (e) { /* rascunho inválido ou armazenamento bloqueado */ }
+    return base;
+  }
+  function salvar() {
+    try { localStorage.setItem(CHAVE, JSON.stringify(estado)); } catch (e) { /* sem armazenamento: segue sem rascunho */ }
+  }
+
+  // ---- render ----
+  var elPartes = document.getElementById("partes");
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; }); }
+
+  function render() {
+    var html = "";
+    DADOS.partes.forEach(function (p) {
+      html += '<section class="parte" id="' + p.id + '"><div class="parte-cab"><span class="num">Parte ' + p.numero + '</span><h2>' + esc(p.titulo) + '</h2></div>';
+      html += '<p class="parte-intro">' + (p.numero === 1 ? "Nove perguntas sobre atenção, organização e memória do dia a dia." : "Nove perguntas sobre inquietação, energia, fala e impulsividade.") + "</p>";
+      p.itens.forEach(function (it, idx) {
+        html += '<article class="item" id="item-' + it.id + '" data-parte="' + p.id + '" data-item="' + it.id + '">';
+        html += '<div class="item-cab"><span class="tag">' + (idx + 1) + " de " + p.itens.length + '</span><h3>' + esc(it.titulo) + '</h3><p class="pergunta">' + esc(it.pergunta) + "</p></div>";
+        DADOS.periodos.forEach(function (per) {
+          var bloco = estado[p.id][it.id][per.id];
+          var nota = per.id === "adulto" ? it.notaAdulto : it.notaInfancia;
+          html += '<div class="bloco ' + per.id + '" data-periodo="' + per.id + '"><div class="bloco-cab"><span class="titulo">' + esc(per.titulo) + '</span><span class="dica">' + esc(per.dica) + "</span></div><div class=\"opcoes\">";
+          it[per.id].forEach(function (ex, i) {
+            var id = "ex-" + it.id + "-" + per.id + "-" + i;
+            html += '<label class="opcao" for="' + id + '"><input type="checkbox" id="' + id + '" data-exemplo="' + esc(ex) + '"' + (bloco.marcados.indexOf(ex) >= 0 ? " checked" : "") + "><span>" + esc(ex) + "</span></label>";
+          });
+          var idN = "nenhum-" + it.id + "-" + per.id;
+          html += '<label class="opcao nenhum" for="' + idN + '"><input type="checkbox" id="' + idN + '" data-nenhum="1"' + (bloco.nenhum ? " checked" : "") + "><span>Nenhum desses se aplica a mim</span></label>";
+          html += "</div>";
+          if (nota) html += '<p class="nota">' + esc(nota) + "</p>";
+          html += '<label class="outros">Outro exemplo, em suas palavras (opcional)<input type="text" data-outros="1" value="' + esc(bloco.outros) + '" placeholder="Escreva aqui..."></label>';
+          html += "</div>";
+        });
+        html += "</article>";
+      });
+      html += "</section>";
+    });
+    elPartes.innerHTML = html;
+    document.getElementById("nome").value = estado.identificacao.nome;
+    document.getElementById("idade").value = estado.identificacao.idade;
+    document.getElementById("data").value = estado.identificacao.data;
+    document.getElementById("observacoes").value = estado.observacoes;
+    atualizarProgresso();
+  }
+
+  // ---- eventos (delegação) ----
+  elPartes.addEventListener("change", function (ev) {
+    var input = ev.target;
+    var art = input.closest(".item"), blocoEl = input.closest(".bloco");
+    if (!art || !blocoEl) return;
+    var bloco = estado[art.dataset.parte][art.dataset.item][blocoEl.dataset.periodo];
+    if (input.dataset.nenhum) {
+      bloco.nenhum = input.checked;
+      if (input.checked) {
+        bloco.marcados = [];
+        blocoEl.querySelectorAll("input[data-exemplo]").forEach(function (c) { c.checked = false; });
+      }
+    } else if (input.dataset.exemplo !== undefined) {
+      var ex = input.dataset.exemplo;
+      bloco.marcados = bloco.marcados.filter(function (m) { return m !== ex; });
+      if (input.checked) {
+        bloco.marcados.push(ex);
+        bloco.nenhum = false;
+        var n = blocoEl.querySelector("input[data-nenhum]"); if (n) n.checked = false;
+      }
+    }
+    salvar(); atualizarProgresso();
+  });
+  elPartes.addEventListener("input", function (ev) {
+    var input = ev.target;
+    if (!input.dataset.outros) return;
+    var art = input.closest(".item"), blocoEl = input.closest(".bloco");
+    estado[art.dataset.parte][art.dataset.item][blocoEl.dataset.periodo].outros = input.value;
+    salvar(); atualizarProgresso();
+  });
+  ["nome", "idade", "data"].forEach(function (campo) {
+    document.getElementById(campo).addEventListener("input", function (ev) { estado.identificacao[campo] = ev.target.value; salvar(); });
+  });
+  document.getElementById("observacoes").addEventListener("input", function (ev) { estado.observacoes = ev.target.value; salvar(); });
+
+  function atualizarProgresso() {
+    var t = window.contarTotaisDiva(DADOS, estado);
+    document.getElementById("prog-texto").textContent = t.blocosRespondidos + " de " + t.blocos + " blocos";
+    document.getElementById("prog-marcados").textContent = (t.adulto + t.infancia) + " exemplo" + (t.adulto + t.infancia === 1 ? "" : "s") + " marcado" + (t.adulto + t.infancia === 1 ? "" : "s");
+    var barra = document.getElementById("prog-barra");
+    barra.setAttribute("aria-valuenow", t.blocosRespondidos);
+    barra.firstElementChild.style.width = (100 * t.blocosRespondidos / t.blocos) + "%";
+    DADOS.partes.forEach(function (p) {
+      p.itens.forEach(function (it) {
+        var r = estado[p.id][it.id];
+        var completo = ["adulto", "infancia"].every(function (per) { var b = r[per]; return b.nenhum || b.marcados.length || b.outros.trim(); });
+        var el = document.getElementById("item-" + it.id); if (el) el.classList.toggle("ok", !!completo);
+      });
+    });
+  }
+
+  // ---- PDF ----
+  var msg = document.getElementById("msg");
+  function mostrarMsg(texto, tipo) { msg.textContent = texto; msg.className = "msg mostrar " + tipo; msg.scrollIntoView({ block: "center", behavior: "smooth" }); }
+
+  function nomeArquivo() {
+    var slug = (estado.identificacao.nome || "paciente").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 40) || "paciente";
+    return "DIVA2-" + slug + "-" + (estado.identificacao.data || hoje()) + ".pdf";
+  }
+
+  async function gerarEEnviar() {
+    var nome = estado.identificacao.nome.trim();
+    if (!nome) {
+      mostrarMsg("Escreva seu nome no início da página antes de gerar o PDF.", "aviso-msg");
+      document.getElementById("nome").focus();
+      return;
+    }
+    var t = window.contarTotaisDiva(DADOS, estado);
+    var botao = document.getElementById("btn-pdf");
+    botao.disabled = true; botao.textContent = "Gerando PDF...";
+    try {
+      var respostas = JSON.parse(JSON.stringify(estado));
+      respostas.identificacao.data = formatarData(respostas.identificacao.data);
+      var doc = window.gerarPdfDiva(window.jspdf.jsPDF, DADOS, respostas);
+      var arquivo = nomeArquivo();
+      var blob = doc.output("blob");
+      var file = null;
+      try { file = new File([blob], arquivo, { type: "application/pdf" }); } catch (e) { file = null; }
+      var pendentes = t.blocos - t.blocosRespondidos;
+      var complemento = pendentes ? " Ficaram " + pendentes + " bloco" + (pendentes === 1 ? "" : "s") + " sem resposta; se quiser, complete e gere de novo." : "";
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file], title: "Questionário DIVA 2.0", text: "Questionário DIVA 2.0 preenchido por " + nome });
+          mostrarMsg("PDF gerado e compartilhado. Se escolheu o WhatsApp, é só enviar ao Dr. Valber." + complemento, "ok-msg");
+        } catch (e) {
+          if (e && e.name === "AbortError") mostrarMsg("Compartilhamento cancelado. Toque em Gerar PDF de novo quando quiser enviar.", "aviso-msg");
+          else { doc.save(arquivo); mostrarMsg("O PDF foi salvo no seu aparelho como " + arquivo + ". Envie esse arquivo ao Dr. Valber pelo WhatsApp." + complemento, "ok-msg"); }
+        }
+      } else {
+        doc.save(arquivo);
+        mostrarMsg("O PDF foi salvo no seu aparelho como " + arquivo + ". Envie esse arquivo ao Dr. Valber pelo WhatsApp." + complemento, "ok-msg");
+      }
+    } catch (e) {
+      mostrarMsg("Não consegui gerar o PDF neste navegador. Tente abrir a página no Chrome ou no Safari e gerar de novo.", "aviso-msg");
+    } finally {
+      botao.disabled = false; botao.textContent = "Gerar PDF e enviar";
+    }
+  }
+  function formatarData(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+    return m ? m[3] + "/" + m[2] + "/" + m[1] : (iso || "");
+  }
+
+  document.getElementById("btn-pdf").addEventListener("click", gerarEEnviar);
+  document.getElementById("btn-limpar").addEventListener("click", function () {
+    if (!this.dataset.confirmar) {
+      this.dataset.confirmar = "1"; this.textContent = "Confirmar?";
+      var self = this; setTimeout(function () { delete self.dataset.confirmar; self.textContent = "Limpar"; }, 3000);
+      return;
+    }
+    delete this.dataset.confirmar; this.textContent = "Limpar";
+    estado = novoEstado(); salvar(); render(); msg.className = "msg";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.__diva = { get estado() { return estado; }, DADOS: DADOS };
+  render();
+})();
+</script>
+</body>
+</html>
